@@ -1,4 +1,5 @@
 import { Route, Routes } from 'react-router-dom'
+import { useState } from 'react'
 
 import Nav from './components/Nav'
 import Footer from './components/Footer'
@@ -12,9 +13,41 @@ import MyPage from './pages/MyPage'
 import styled from 'styled-components'
 
 const Router = () => {
+  const [userInfo, setUserInfo] = useState({
+    id: 1,
+    email: 'snowone4426@gmail.com',
+    gender: 'M',
+    nick: 'snowone',
+    phone: '010-2084-9913',
+  })
+
+  const signinHanlder = () => {
+    setUserInfo({
+      id: 1,
+      email: 'snowone4426@gmail.com',
+      gender: 'M',
+      nick: 'snowone',
+      phone: '010-2084-9913',
+    })
+  }
+
+  const signoutHanlder = () => {
+    setUserInfo({})
+  }
+
+  let isLogin = false
+  if (Object.keys(userInfo).length !== 0) {
+    isLogin = true
+  }
+
   return (
     <RouterContainer>
-      <Nav />
+      <Nav
+        isLogin={isLogin}
+        gender={Object.keys(userInfo).length !== 0 ? userInfo.gender : ''}
+        id={Object.keys(userInfo).length !== 0 ? userInfo.id : 0}
+        signoutHanlder={signoutHanlder}
+      />
       <Routes>
         <Route path="/" element={<Main />} />
         <Route path="/signin" element={<SignIn />} />
@@ -33,8 +66,8 @@ const RouterContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 100vw;
   min-height: 100vh;
+  margin-top: 150px;
   background-color: skyblue;
 `
 

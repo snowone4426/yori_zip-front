@@ -6,7 +6,7 @@ const Main = () => {
 
 const MainContainer = styled.div`
   width: 100%;
-  height: 88vh;
+  min-height: 88vh;
   background-color: gray;
 `
 
