@@ -57,7 +57,9 @@ const Nav = ({ isLogin, gender, id, signoutHanlder }) => {
       : `${publicUrl}/assets/mypage_female.png`
 
   let btnSelector = (
-    <SignBtn onClick={() => moveHanlder('/signin')}>로그인</SignBtn>
+    <SignBtn onClick={() => moveHanlder('/signin', { where: 'nav' })}>
+      로그인
+    </SignBtn>
   )
   if (isLogin) {
     btnSelector = (

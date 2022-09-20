@@ -28,7 +28,7 @@ const RecipeCard = (props) => {
       <Title>{title}</Title>
       <RecipeInfoContainer>
         {Info.map((el) => (
-          <InfoContainer>
+          <InfoContainer key={el}>
             <LevelIcon src={`${publicUrl}/assets/${el}.png`} />
             {props[el]}
           </InfoContainer>

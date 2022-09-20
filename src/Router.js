@@ -50,7 +50,10 @@ const Router = () => {
       />
       <Routes>
         <Route path="/" element={<Main />} />
-        <Route path="/signin" element={<SignIn />} />
+        <Route
+          path="/signin"
+          element={<SignIn signinHanlder={signinHanlder} />}
+        />
         <Route path="/signup" element={<SignUp />} />
         <Route path="/recipelist" element={<RecipeList />} />
         <Route path="/recipedetail/:recipeId" element={<RecipeDetail />} />
