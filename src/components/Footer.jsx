@@ -33,8 +33,8 @@ const Footer = () => {
         <div>Copyright ⓒ teagyu co. All Rights Reserved.</div>
       </InfoContainer>
       <MemberContainer>
-        {memberInfo.map((el) => (
-          <a href={el.github}>
+        {memberInfo.map((el, idx) => (
+          <a href={el.github} key={idx + el.name}>
             <img src={`${publicUrl}/assets/github.png`} alt="github icon" />
             <div>{el.name}</div>
           </a>
@@ -44,7 +44,7 @@ const Footer = () => {
   )
 }
 
-const FooterContainer = styled.div`
+const FooterContainer = styled.footer`
   display: flex;
   justify-content: space-between;
   align-items: center;

@@ -142,7 +142,7 @@ const Nav = ({ isLogin, gender, id, signoutHanlder }) => {
   )
 }
 
-const NavContainer = styled.div`
+const NavContainer = styled.header`
   position: fixed;
   top: 0;
   left: 0;
@@ -152,6 +152,7 @@ const NavContainer = styled.div`
   width: 100%;
   height: 150px;
   box-shadow: 0 3px 20px 0 black;
+  z-index: 999999;
   background-color: white;
 `
 
@@ -222,7 +223,7 @@ const SignBtn = styled.button`
   }
 `
 
-const DownNav = styled.div`
+const DownNav = styled.nav`
   position: relative;
   display: flex;
   align-items: center;

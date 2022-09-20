@@ -66,9 +66,8 @@ const RouterContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  min-height: 100vh;
+  min-height: 80vh;
   margin-top: 150px;
-  background-color: skyblue;
 `
 
 export default Router
