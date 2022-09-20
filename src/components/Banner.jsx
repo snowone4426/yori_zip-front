@@ -26,15 +26,13 @@ const Banner = () => {
     ])
   }, [])
 
-  const moveHanlder = (location, params = {}) => {
-    if (Object.keys(params).length === 0) navigate(location)
-    else navigate(location, { state: params })
-  }
   return (
     <BannerContainer>
       {bannerInfo.map((el) => (
         <BannerImg
-          onClick={() => moveHanlder(`/recipelist`, { where: 'banner' })}
+          onClick={() =>
+            navigate(`/recipelist`, { state: { where: 'banner' } })
+          }
           src={el.photo}
           alt={el.alt}
           key={el.bannerId + el.search}

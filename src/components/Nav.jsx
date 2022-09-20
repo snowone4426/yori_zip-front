@@ -15,7 +15,7 @@ const Nav = ({ isLogin, gender, id, signoutHanlder }) => {
 
   const searchOpenHanlder = () => {
     if (searchText) {
-      moveHanlder('/recipelist', { type: 'search', word: searchText })
+      navigate('/recipelist', { state: { type: 'search', word: searchText } })
     }
     setIsSearchOpen(!isSearchOpen)
     setSearchText('')
@@ -27,15 +27,8 @@ const Nav = ({ isLogin, gender, id, signoutHanlder }) => {
 
   const searchActiveHandler = (e) => {
     if (e.key === 'Enter') {
-      moveHanlder('/recipelist', { type: 'search', word: searchText })
-      setIsSearchOpen(!isSearchOpen)
-      setSearchText('')
+      searchOpenHanlder()
     }
-  }
-
-  const moveHanlder = (location, params = {}) => {
-    if (Object.keys(params).length === 0) navigate(location)
-    else navigate(location, { state: params })
   }
 
   const hoverHanlder = (e) => {
@@ -57,14 +50,14 @@ const Nav = ({ isLogin, gender, id, signoutHanlder }) => {
       : `${publicUrl}/assets/mypage_female.png`
 
   let btnSelector = (
-    <SignBtn onClick={() => moveHanlder('/signin', { where: 'nav' })}>
+    <SignBtn onClick={() => navigate('/signin', { state: { where: 'nav' } })}>
       로그인
     </SignBtn>
   )
   if (isLogin) {
     btnSelector = (
       <React.Fragment>
-        <SignBtn onClick={() => moveHanlder(`/mypage/${id}`)}>
+        <SignBtn onClick={() => navigate(`/mypage/${id}`)}>
           <img src={mypageGender} alt="mypage" />
         </SignBtn>
         <SignBtn onClick={signoutHanlder}>로그아웃</SignBtn>
@@ -79,7 +72,7 @@ const Nav = ({ isLogin, gender, id, signoutHanlder }) => {
   return (
     <NavContainer>
       <UpNav>
-        <NavLogo src="" alt="logo" onClick={() => moveHanlder(`/`)} />
+        <NavLogo src="" alt="logo" onClick={() => navigate(`/`)} />
         <BtnContainer>
           <SearchInputLabel isSearchOpen={isSearchOpen}>
             <SearchInput
@@ -121,7 +114,7 @@ const Nav = ({ isLogin, gender, id, signoutHanlder }) => {
           최근 본 레시피
         </SubBtn>
         <SubBtn
-          onClick={() => moveHanlder('/createrecipe', { id: id })}
+          onClick={() => navigate('/createrecipe', { state: { id: id } })}
           onMouseEnter={hoverHanlder}
           onMouseLeave={() => setIsHover('')}
           name="createRecipe"

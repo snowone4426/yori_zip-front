@@ -7,11 +7,6 @@ const WeekThemeList = () => {
   const [recipeList, setRecipeList] = useState([])
   const navigate = useNavigate()
 
-  const moveHanlder = (location, params = {}) => {
-    if (Object.keys(params).length === 0) navigate(location)
-    else navigate(location, { state: params })
-  }
-
   useEffect(() => {
     setRecipeList([
       {
@@ -39,15 +34,14 @@ const WeekThemeList = () => {
         thumbnail: `${publicUrl}/assets/고기구이.jpg`,
       },
     ])
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   return (
     <WeekThemeListContainer>
       <LargeCard
         onClick={() =>
-          moveHanlder(
-            `/recipedetail/${!!recipeList[0] && recipeList[0].recipeId}`,
-          )
+          navigate(`/recipedetail/${!!recipeList[0] && recipeList[0].recipeId}`)
         }
       >
         {!!recipeList[0] && (
@@ -56,9 +50,7 @@ const WeekThemeList = () => {
       </LargeCard>
       <SmallCard
         onClick={() =>
-          moveHanlder(
-            `/recipedetail/${!!recipeList[1] && recipeList[1].recipeId}`,
-          )
+          navigate(`/recipedetail/${!!recipeList[1] && recipeList[1].recipeId}`)
         }
       >
         {!!recipeList[1] && (
@@ -70,9 +62,7 @@ const WeekThemeList = () => {
       </SmallCard>
       <SmallCard
         onClick={() =>
-          moveHanlder(
-            `/recipedetail/${!!recipeList[2] && recipeList[2].recipeId}`,
-          )
+          navigate(`/recipedetail/${!!recipeList[2] && recipeList[2].recipeId}`)
         }
       >
         {!!recipeList[2] && (
@@ -84,9 +74,7 @@ const WeekThemeList = () => {
       </SmallCard>
       <MidiumCard
         onClick={() =>
-          moveHanlder(
-            `/recipedetail/${!!recipeList[3] && recipeList[3].recipeId}`,
-          )
+          navigate(`/recipedetail/${!!recipeList[3] && recipeList[3].recipeId}`)
         }
       >
         {!!recipeList[3] && (
