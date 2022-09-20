@@ -1,13 +1,13 @@
+import { Outlet } from 'react-router-dom'
 import styled from 'styled-components'
 
 import SignUpHeader from '../components/SignUpHeader'
-import SignUpTermsList from '../components/SignUpTermsList'
 
 const SignUp = () => {
   return (
     <SignUpContainer>
       <SignUpHeader />
-      <SignUpTermsList />
+      <Outlet />
     </SignUpContainer>
   )
 }

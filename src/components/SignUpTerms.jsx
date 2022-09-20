@@ -1,21 +1,21 @@
-import { useState } from 'react'
 import styled from 'styled-components'
 
 import { termHTML } from '../dummy/termInfo'
 
-const SignUpTerms = () => {
-  const [isChecked, setIsChecked] = useState(false)
-
-  const checkHandler = () => {
-    setIsChecked(!isChecked)
+const SignUpTerms = ({ isChecked, idx, checkHandler }) => {
+  const checker = () => {
+    checkHandler(isChecked[idx], idx)
   }
 
   return (
     <SignUpTermsContainer>
       <Term>{termHTML}</Term>
       <CheckBoxLabel>
-        <input type="checkbox" value={isChecked} onChange={checkHandler} /> 위
-        약관에 동의합니다
+        <CustomCheckBox>
+          <CheckBoxSpot isChecked={isChecked[idx]} />
+        </CustomCheckBox>
+        <input type="checkbox" value={isChecked[idx]} onChange={checker} />
+        <span>위 약관에 동의합니다</span>
       </CheckBoxLabel>
     </SignUpTermsContainer>
   )
@@ -26,6 +26,7 @@ const SignUpTermsContainer = styled.article`
   flex-direction: column;
   align-items: center;
   width: 940px;
+  margin-bottom: 20px;
 `
 
 const Term = styled.div`
@@ -80,11 +81,38 @@ const Term = styled.div`
 `
 
 const CheckBoxLabel = styled.label`
+  display: flex;
+  align-items: center;
+  align-self: flex-start;
   font-size: 16px;
+  margin: 10px 0 0 15px;
+  cursor: pointer;
 
-  & input[type='checkbox'] {
+  & > input[type='checkbox'] {
     display: none;
   }
+
+  & > span {
+    pointer-events: none;
+  }
+`
+
+const CustomCheckBox = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 28px;
+  height: 28px;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 100%;
+  margin-right: 5px;
+`
+const CheckBoxSpot = styled.div`
+  display: ${({ isChecked }) => (isChecked ? 'default' : 'none')};
+  width: 10px;
+  height: 10px;
+  border-radius: 100%;
+  background-color: #595959;
 `
 
 export default SignUpTerms
