@@ -31,7 +31,7 @@ const Banner = () => {
       {bannerInfo.map((el) => (
         <BannerImg
           onClick={() =>
-            navigate(`/recipelist`, { state: { where: 'banner' } })
+            navigate(`/recipelist/search`, { state: { where: 'banner' } })
           }
           src={el.photo}
           alt={el.alt}
@@ -48,7 +48,6 @@ const BannerContainer = styled.section`
   width: 85vw;
   margin-top: 60px;
   overflow: scroll;
-  background-color: yellow;
 `
 const BannerImg = styled.img`
   flex-shrink: 0;

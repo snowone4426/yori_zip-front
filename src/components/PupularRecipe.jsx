@@ -3,7 +3,9 @@ import { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 
 import TitleBox from './TitleBox'
-import RecipeList from './RecipeList'
+import RecipeCardList from './RecipeCardList'
+
+import { dummyMainArr } from '../dummy/termInfo'
 
 const PupularRecipe = () => {
   const navigate = useNavigate()
@@ -23,97 +25,10 @@ const PupularRecipe = () => {
   ])
 
   useEffect(() => {
-    setRecipeArr([
-      {
-        recipeId: 0,
-        title: '당근 케이크',
-        subTitle: '촉촉하고 진짜 맛있는',
-        thumbnail: `${publicUrl}/assets/고기구이.jpg`,
-        level: '중급',
-        time: '70분',
-        starScore: '4.0',
-        state: '',
-        created_at: new Date('2022-09-01'),
-      },
-      {
-        recipeId: 1,
-        title: '당근 케이크',
-        subTitle: '촉촉하고 진짜 맛있는',
-        thumbnail: `${publicUrl}/assets/고기구이.jpg`,
-        level: '중급',
-        time: '70분',
-        starScore: '4.0',
-        state: 'hot',
-        created_at: new Date('2022-09-01'),
-      },
-      {
-        recipeId: 2,
-        title: '당근 케이크',
-        subTitle: '촉촉하고 진짜 맛있는',
-        thumbnail: `${publicUrl}/assets/고기구이.jpg`,
-        level: '중급',
-        time: '70분',
-        starScore: '4.0',
-        state: '',
-        created_at: new Date(),
-      },
-      {
-        recipeId: 3,
-        title: '당근 케이크',
-        subTitle: '촉촉하고 진짜 맛있는',
-        thumbnail: `${publicUrl}/assets/고기구이.jpg`,
-        level: '중급',
-        time: '70분',
-        starScore: '4.0',
-        state: 'hot',
-        created_at: new Date(),
-      },
-      {
-        recipeId: 4,
-        title: '당근 케이크',
-        subTitle: '촉촉하고 진짜 맛있는',
-        thumbnail: `${publicUrl}/assets/고기구이.jpg`,
-        level: '중급',
-        time: '70분',
-        starScore: '4.0',
-        state: 'hot',
-        created_at: new Date(),
-      },
-      {
-        recipeId: 5,
-        title: '당근 케이크',
-        subTitle: '촉촉하고 진짜 맛있는',
-        thumbnail: `${publicUrl}/assets/고기구이.jpg`,
-        level: '중급',
-        time: '70분',
-        starScore: '4.0',
-        state: 'hot',
-        created_at: new Date(),
-      },
-      {
-        recipeId: 6,
-        title: '당근 케이크',
-        subTitle: '촉촉하고 진짜 맛있는',
-        thumbnail: `${publicUrl}/assets/고기구이.jpg`,
-        level: '중급',
-        time: '70분',
-        starScore: '4.0',
-        state: 'hot',
-        created_at: new Date(),
-      },
-      {
-        recipeId: 7,
-        title: '당근 케이크',
-        subTitle: '촉촉하고 진짜 맛있는',
-        thumbnail: `${publicUrl}/assets/고기구이.jpg`,
-        level: '중급',
-        time: '70분',
-        starScore: '4.0',
-        state: 'hot',
-        created_at: new Date(),
-      },
-    ])
+    setRecipeArr(dummyMainArr)
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
+
   return (
     <PupularRecipeContainer>
       <TitleBox
@@ -123,7 +38,7 @@ const PupularRecipe = () => {
           navigate('/recipelist', { state: { largeCategory: '인기' } })
         }
       />
-      <RecipeList recipeArr={recipeArr} />
+      <RecipeCardList recipeArr={recipeArr} />
     </PupularRecipeContainer>
   )
 }

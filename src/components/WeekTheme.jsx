@@ -13,7 +13,7 @@ const WeekTheme = () => {
         title="This week`s theme"
         subTitle="이번주 테마 레시피를 둘러보세요!"
         onClickEvent={() =>
-          navigate('/recipelist', { state: { search: weeklyTheme } })
+          navigate('/recipelist/search', { state: { search: weeklyTheme } })
         }
       />
       <WeekThemeList />
