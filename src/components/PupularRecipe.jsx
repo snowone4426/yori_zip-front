@@ -1,10 +1,12 @@
 import styled from 'styled-components'
 import { useState, useEffect } from 'react'
+import { useNavigate } from 'react-router-dom'
 
 import TitleBox from './TitleBox'
 import RecipeList from './RecipeList'
 
 const PupularRecipe = () => {
+  const navigate = useNavigate()
   const publicUrl = process.env.PUBLIC_URL
   const [recipeArr, setRecipeArr] = useState([
     {
@@ -117,6 +119,9 @@ const PupularRecipe = () => {
       <TitleBox
         title="Popular pecipes"
         subTitle="많이 찾으시는 레시피를 소개합니다"
+        onClickEvent={() =>
+          navigate('/recipelist', { state: { largeCategory: '인기' } })
+        }
       />
       <RecipeList recipeArr={recipeArr} />
     </PupularRecipeContainer>

@@ -1,20 +1,29 @@
 import styled from 'styled-components'
 import React from 'react'
 
-const TitleBox = ({ title, subTitle }) => {
+const TitleBox = ({ title, subTitle, onClickEvent }) => {
   return (
     <TitleContainer>
-      <TitleText>{title}</TitleText>
-      <MiddleLine />
-      <SubtitleText>{subTitle}</SubtitleText>
+      <TitleBoxFrame onClick={() => onClickEvent()}>
+        <TitleText>{title}</TitleText>
+        <MiddleLine />
+        <SubtitleText>{subTitle}</SubtitleText>
+      </TitleBoxFrame>
     </TitleContainer>
   )
 }
 
 const TitleContainer = styled.header`
   display: flex;
+  justify-content: center;
+  width: 100%;
+`
+
+const TitleBoxFrame = styled.div`
+  display: flex;
   flex-direction: column;
   align-items: center;
+  cursor: pointer;
 `
 
 const TitleText = styled.div`

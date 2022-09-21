@@ -2,13 +2,19 @@ import styled from 'styled-components'
 
 import WeekThemeList from './WeekThemeList'
 import TitleBox from './TitleBox'
+import { useNavigate } from 'react-router-dom'
 
 const WeekTheme = () => {
+  const navigate = useNavigate()
+  const weeklyTheme = ''
   return (
     <WeekThemeListContainer>
       <TitleBox
         title="This week`s theme"
         subTitle="이번주 테마 레시피를 둘러보세요!"
+        onClickEvent={() =>
+          navigate('/recipelist', { state: { search: weeklyTheme } })
+        }
       />
       <WeekThemeList />
     </WeekThemeListContainer>
