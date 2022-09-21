@@ -19,11 +19,17 @@ const GlobalStyle = createGlobalStyle`
   input {
     border: none;
     outline: none;
+    background-color: transparent;
   }
   button{
     border:none;
     background: none;
     cursor: pointer;
+  }
+
+  select{ 
+    border:none;
+    outline: none;
   }
 `
 

@@ -19,6 +19,15 @@ const SignUpTermsList = () => {
     else setIsChecked([false, false])
   }
 
+  const nextHanlder = () => {
+    if (!isChecked.includes(false)) {
+      navigate('/signup/userinfo', {
+        state: { termAgree: isChecked },
+        replace: true,
+      })
+    }
+  }
+
   return (
     <SignUpTermsListContainer>
       <TermsListTitle>Logo 서비스 이용 약관</TermsListTitle>
@@ -32,15 +41,9 @@ const SignUpTermsList = () => {
       ))}
       <BtnContainer>
         <AllTermAgree onClick={allAgree}>전부 동의</AllTermAgree>
-        <NextBtn
-          onClick={() =>
-            navigate('/signup/userinfo', {
-              state: { termAgree: isChecked },
-              replace: true,
-            })
-          }
-        >
+        <NextBtn onClick={nextHanlder} isNext={!isChecked.includes(false)}>
           다음
+          <Rhombus />
         </NextBtn>
       </BtnContainer>
     </SignUpTermsListContainer>
@@ -68,7 +71,7 @@ const BtnContainer = styled.div`
   display: flex;
   justify-content: flex-end;
   width: 100%;
-  margin-bottom: 70px;
+  margin: 0 35px 70px 0;
 `
 
 const AllTermAgree = styled.button`
@@ -80,6 +83,21 @@ const AllTermAgree = styled.button`
   background-color: #292929;
 `
 
-const NextBtn = styled(AllTermAgree)``
+const NextBtn = styled(AllTermAgree)`
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  opacity: ${({ isNext }) => (isNext ? 1 : 0.5)};
+`
+
+const Rhombus = styled.div`
+  position: relative;
+  top: 0.15px;
+  left: 12.7px;
+  width: 25.7px;
+  height: 25.7px;
+  transform: rotate(45deg);
+  background-color: #292929;
+`
 
 export default SignUpTermsList
