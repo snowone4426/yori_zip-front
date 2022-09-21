@@ -10,15 +10,8 @@ const RecipeCard = (props) => {
   let isHot = state === 'hot'
   let isNew = 604800000 >= new Date() - created_at
 
-  const moveHanlder = (location, params = {}) => {
-    if (Object.keys(params).length === 0) navigate(location)
-    else navigate(location, { state: params })
-  }
-
   return (
-    <RecipeCardContatiner
-      onClick={() => moveHanlder(`/recipedetail/${recipeId}`)}
-    >
+    <RecipeCardContatiner onClick={() => navigate(`/recipedetail/${recipeId}`)}>
       <Thumbnail src={thumbnail} alt={title} />
       <MarkContainer>
         {isHot && <Marker color="#ff4e02">HOT</Marker>}
@@ -29,7 +22,7 @@ const RecipeCard = (props) => {
       <RecipeInfoContainer>
         {Info.map((el) => (
           <InfoContainer key={el}>
-            <LevelIcon src={`${publicUrl}/assets/${el}.png`} />
+            <InfoIcon src={`${publicUrl}/assets/${el}.png`} />
             {props[el]}
           </InfoContainer>
         ))}
@@ -102,19 +95,7 @@ const InfoContainer = styled.div`
   }
 `
 
-const LevelIcon = styled.img`
-  position: relative;
-  bottom: 1px;
-  width: 21px;
-  height: 21px;
-`
-
-const TimeIcon = styled.img`
-  width: 21px;
-  height: 21px;
-`
-
-const StarIcon = styled.img`
+const InfoIcon = styled.img`
   position: relative;
   bottom: 1px;
   width: 21px;

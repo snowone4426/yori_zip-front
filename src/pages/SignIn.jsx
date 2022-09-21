@@ -11,6 +11,7 @@ const SignIn = ({ signinHanlder }) => {
     if (!location.state || !['nav', 'signup'].includes(location.state.where)) {
       navigate('/')
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   const inputHanlder = (e) => {
@@ -52,7 +53,7 @@ const SignIn = ({ signinHanlder }) => {
           />
         </InputLabel>
         <LinkContainer>
-          <MiniBtn onClick={() => navigate('/signup')}>회원가입</MiniBtn>
+          <MiniBtn onClick={() => navigate('/signup/terms')}>회원가입</MiniBtn>
           <MiniBtn>비밀번호 찾기</MiniBtn>
         </LinkContainer>
         <SubmitBtn inputInfo={inputInfo} onClick={submitHanlder}>

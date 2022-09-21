@@ -47,22 +47,19 @@ const CategoryList = ({ where, setIsSubNavOpen = () => {} }) => {
       : {},
   )
 
-  const moveHanlder = (location, params = {}) => {
-    if (Object.keys(params).length === 0) navigate(location)
-    else navigate(location, { state: params })
-  }
-
   const cateBtnClickHanlder = (large, small = '') => {
     if (where === 'nav') {
       setIsSubNavOpen('')
-      moveHanlder('/recipelist', {
-        largeCategory: large,
-        smallCategory: {
-          종류: '',
-          재료: '',
-          방법: '',
-          도구: '',
-          [large]: small,
+      navigate('/recipelist', {
+        state: {
+          largeCategory: large,
+          smallCategory: {
+            종류: '',
+            재료: '',
+            방법: '',
+            도구: '',
+            [large]: small,
+          },
         },
       })
     } else if (smallCategory[large] === small) {

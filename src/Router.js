@@ -11,6 +11,8 @@ import RecipeDetail from './pages/RecipeDetail'
 import CreateRecipe from './pages/CreateRecipe'
 import MyPage from './pages/MyPage'
 import styled from 'styled-components'
+import SignUpTermsList from './components/SignUpTermsList'
+import SignUpUserInfo from './components/SignUpUserIfo'
 
 const Router = () => {
   const [userInfo, setUserInfo] = useState({
@@ -54,7 +56,10 @@ const Router = () => {
           path="/signin"
           element={<SignIn signinHanlder={signinHanlder} />}
         />
-        <Route path="/signup" element={<SignUp />} />
+        <Route path="/signup" element={<SignUp />}>
+          <Route path="/signup/terms" element={<SignUpTermsList />} />
+          <Route path="/signup/userinfo" element={<SignUpUserInfo />} />
+        </Route>
         <Route path="/recipelist" element={<RecipeList />} />
         <Route path="/recipedetail/:recipeId" element={<RecipeDetail />} />
         <Route path="/createrecipe" element={<CreateRecipe />} />
