@@ -2,7 +2,7 @@ import styled from 'styled-components'
 import { useNavigate, useLocation } from 'react-router-dom'
 import { useState } from 'react'
 
-const CategoryList = ({ where, setIsSubNavOpen = () => {} }) => {
+const CategoryList = ({ where = '', setIsSubNavOpen = () => {} }) => {
   const categoryArr = [
     [
       '종류',

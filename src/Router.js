@@ -60,7 +60,7 @@ const Router = () => {
           <Route path="/signup/terms" element={<SignUpTermsList />} />
           <Route path="/signup/userinfo" element={<SignUpUserInfo />} />
         </Route>
-        <Route path="/recipelist" element={<RecipeList />} />
+        <Route path="/recipelist*" element={<RecipeList />} />
         <Route path="/recipedetail/:recipeId" element={<RecipeDetail />} />
         <Route path="/createrecipe" element={<CreateRecipe />} />
         <Route path="/mypage/:userId" element={<MyPage />} />

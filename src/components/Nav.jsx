@@ -15,7 +15,9 @@ const Nav = ({ isLogin, gender, id, signoutHanlder }) => {
 
   const searchOpenHanlder = () => {
     if (searchText) {
-      navigate('/recipelist', { state: { type: 'search', word: searchText } })
+      navigate('/recipelist/search', {
+        state: { type: 'search', word: searchText },
+      })
     }
     setIsSearchOpen(!isSearchOpen)
     setSearchText('')
