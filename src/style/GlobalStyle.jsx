@@ -31,6 +31,12 @@ const GlobalStyle = createGlobalStyle`
     border:none;
     outline: none;
   }
+
+  textarea {
+    border: none;
+    outline:none;
+    resize: none;
+  }
 `
 
 export default GlobalStyle

@@ -1,5 +1,114 @@
 const publicUrl = process.env.PUBLIC_URL
 
+export const dummyRecipeDetail = {
+  data: {
+    recipeId: 0,
+    title: '당근 케이크',
+    subtitle: '촉촉하고 진짜 맛있는',
+    description:
+      '전주비빔밥은 전주 식도락의 품격이다. 쌀밥에 나물과 소고기, 황포묵 등 오방색의 재료를 담아 우리 전통과 문화와 정서까지 조화롭게 비벼 먹는 일품요리라고 할 수 있다. 전주비빔밥의 유래는 궁중음식에서 시작해 서민 음식으로 정착되었다는 설이 유력하다. 비빔밥이 처음 등장한 문헌은 1800년대 말엽 간행된 시의전서라는 조리서다. 비빔밥은 골동반(骨同飯), 혹은 화반(花飯)이라고도 불렸는데, 골동반은 어지럽게 섞는다는 의미를, 화반은 꽃밥이라는 의미가 있다.',
+    thumbnail: `${publicUrl}/assets/고기구이.jpg`,
+    level: '중급',
+    time: '70분',
+    starScore: '4.0',
+    created_at: new Date('2022-09-01'),
+    userId: 0,
+    nickname: '레시피 올리는 사람',
+    profile: `${publicUrl}/assets/고기구이.jpg`,
+  },
+  isBookMark: false,
+  ingredient: {
+    '기본 재료': [
+      { name: '밥', quantity: '2 공기' },
+      { name: '당근', quantity: '1/10 개' },
+      { name: '양파', quantity: '1/4 개' },
+      { name: '애호박', quantity: '1/2 개' },
+      { name: '참기름', quantity: '약간' },
+      { name: '소금', quantity: '약간' },
+    ],
+    양념장: [
+      { name: '밥', quantity: '2 공기' },
+      { name: '당근', quantity: '1/10 개' },
+      { name: '양파', quantity: '1/4 개' },
+      { name: '애호박', quantity: '1/2 개' },
+      { name: '참기름', quantity: '약간' },
+      { name: '소금', quantity: '약간' },
+    ],
+  },
+  recipe_detail: [
+    {
+      photo: `${publicUrl}/assets/고기구이.jpg`,
+      description:
+        '데친 도라지, 고사리, 느타리버섯을 각각 분량의 밑간 재료에 밑간한 뒤 각각 볶아주세요. *Tip. 고추장 양념에 밥을 비벼 먹기 때문에 모든 나물의 간은 심심하게 맞춰주세요.',
+    },
+    {
+      photo: `${publicUrl}/assets/고기구이.jpg`,
+      description:
+        '달군 팬에 카놀라유를 두르고 양파, 애호박을 소금과 참기름을 넣어 중불에서 볶아주세요. 당근은 소금으로 간하여 살짝 볶아줍니다. *Tip. 애호박은 반달 썰기 하시고 당근, 양파는 채썰어 주세요.',
+    },
+    {
+      photo: `${publicUrl}/assets/고기구이.jpg`,
+      description:
+        '달군 팬에 카놀라유를 두른 뒤 파기름 재료를 넣고 약불에서 2분간 뒤적이며 볶아주세요.',
+    },
+    {
+      photo: `${publicUrl}/assets/고기구이.jpg`,
+      description:
+        '그릇에 밥과 나물, 달걀프라이, 깨끗이 씻은 식용꽃 순으로 담아주세요.',
+    },
+  ],
+  reple: [
+    {
+      repleId: 0,
+      profile: `${publicUrl}/assets/고기구이.jpg`,
+      nickname: '댓글다는사람',
+      context:
+        '매 번 이렇게 레시피 얻어서 하는데 최소한 내가 한 건 올려 드려야 우리의 식탁에 예의인듯 싶어 댓글이라도 올리려 노력합니다. 아이들이 어느 식당을 비교할 수없는 최고의 맛이라고 해 더 좋습니다',
+      created_at: new Date(),
+    },
+    {
+      repleId: 1,
+      profile: `${publicUrl}/assets/고기구이.jpg`,
+      nickname: '댓글다는사람',
+      context:
+        '매 번 이렇게 레시피 얻어서 하는데 최소한 내가 한 건 올려 드려야 우리의 식탁에 예의인듯 싶어 댓글이라도 올리려 노력합니다. 아이들이 어느 식당을 비교할 수없는 최고의 맛이라고 해 더 좋습니다',
+      created_at: new Date(),
+    },
+    {
+      repleId: 2,
+      profile: `${publicUrl}/assets/고기구이.jpg`,
+      nickname: '댓글다는사람',
+      context:
+        '매 번 이렇게 레시피 얻어서 하는데 최소한 내가 한 건 올려 드려야 우리의 식탁에 예의인듯 싶어 댓글이라도 올리려 노력합니다. 아이들이 어느 식당을 비교할 수없는 최고의 맛이라고 해 더 좋습니다',
+      created_at: new Date(),
+    },
+    {
+      repleId: 3,
+      profile: `${publicUrl}/assets/고기구이.jpg`,
+      nickname: '댓글다는사람',
+      context:
+        '매 번 이렇게 레시피 얻어서 하는데 최소한 내가 한 건 올려 드려야 우리의 식탁에 예의인듯 싶어 댓글이라도 올리려 노력합니다. 아이들이 어느 식당을 비교할 수없는 최고의 맛이라고 해 더 좋습니다',
+      created_at: new Date(),
+    },
+    {
+      repleId: 4,
+      profile: `${publicUrl}/assets/고기구이.jpg`,
+      nickname: '댓글다는사람',
+      context:
+        '매 번 이렇게 레시피 얻어서 하는데 최소한 내가 한 건 올려 드려야 우리의 식탁에 예의인듯 싶어 댓글이라도 올리려 노력합니다. 아이들이 어느 식당을 비교할 수없는 최고의 맛이라고 해 더 좋습니다',
+      created_at: new Date(),
+    },
+  ],
+}
+
+export const dummyScore = 3
+
+export const dummyMyinfo = {
+  userId: 1,
+  gender: '',
+  type: 'cust',
+}
+
 export const dummyMainArr = [
   {
     recipeId: 0,

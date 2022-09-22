@@ -8,7 +8,10 @@ const SignIn = ({ signinHanlder }) => {
   const [inputInfo, setInputInfo] = useState({ id: '', password: '' })
 
   useEffect(() => {
-    if (!location.state || !['nav', 'signup'].includes(location.state.where)) {
+    if (
+      !location.state ||
+      !['nav', 'signup', 'comment', 'bookmark'].includes(location.state.where)
+    ) {
       navigate('/')
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
