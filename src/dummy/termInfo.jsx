@@ -1,5 +1,69 @@
 const publicUrl = process.env.PUBLIC_URL
 
+export const categoryList = {
+  종류: [
+    '밥',
+    '반찬',
+    '국물',
+    '면',
+    '디저트',
+    '분식',
+    '셀러드',
+    '음료',
+    '주류',
+    '기타',
+  ],
+  재료: [
+    '쇠고기',
+    '돼지고기',
+    '닭고기',
+    '채소',
+    '해물',
+    '계란',
+    '유제품',
+    '기타',
+  ],
+  방법: ['구이', '찜', '국물', '볶음', '조림', '튀김', '비빔', '기타'],
+  도구: ['에어프라이어', '가스레인지', '전자레인지', '냄비', '오븐', '기타'],
+}
+
+export const categoryArr = [
+  [
+    '종류',
+    '밥',
+    '반찬',
+    '국물',
+    '면',
+    '디저트',
+    '분식',
+    '셀러드',
+    '음료',
+    '주류',
+    '기타',
+  ],
+  [
+    '재료',
+    '쇠고기',
+    '돼지고기',
+    '닭고기',
+    '채소',
+    '해물',
+    '계란',
+    '유제품',
+    '기타',
+  ],
+  ['방법', '구이', '찜', '국물', '볶음', '조림', '튀김', '비빔', '기타'],
+  ['도구', '에어프라이어', '가스레인지', '전자레인지', '냄비', '오븐', '기타'],
+]
+
+export const dummyScore = 3
+
+export const dummyMyinfo = {
+  userId: 1,
+  gender: '',
+  type: 'cust',
+}
+
 export const dummyRecipeDetail = {
   data: {
     recipeId: 0,
@@ -99,14 +163,6 @@ export const dummyRecipeDetail = {
       created_at: new Date(),
     },
   ],
-}
-
-export const dummyScore = 3
-
-export const dummyMyinfo = {
-  userId: 1,
-  gender: '',
-  type: 'cust',
 }
 
 export const dummyMainArr = [
