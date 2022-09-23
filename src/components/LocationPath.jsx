@@ -18,6 +18,8 @@ const LocationPath = () => {
         return '레시피상세'
       case 'search':
         return '검색'
+      case 'createrecipe':
+        return '레시피 등록'
       default:
         return str
     }

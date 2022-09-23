@@ -6,12 +6,12 @@ import CategoryList from './CategoryList'
 import RecentView from './RecentView'
 
 const Nav = ({ isLogin, gender, id, signoutHanlder }) => {
+  const navigate = useNavigate()
+  const publicUrl = process.env.PUBLIC_URL
   const [isSearchOpen, setIsSearchOpen] = useState(false)
   const [searchText, setSearchText] = useState('')
   const [isHover, setIsHover] = useState('')
   const [isSubNavOpen, setIsSubNavOpen] = useState('')
-  const navigate = useNavigate()
-  const publicUrl = process.env.PUBLIC_URL
 
   const searchOpenHanlder = () => {
     if (searchText) {
