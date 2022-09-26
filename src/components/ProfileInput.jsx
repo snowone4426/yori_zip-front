@@ -1,9 +1,9 @@
 import { useState } from 'react'
 import styled from 'styled-components'
 
-const ProfileInput = ({ onChangeEvent = (key, value) => {} }) => {
+const ProfileInput = ({ onChangeEvent = (key, value) => {}, value = '' }) => {
   const publicUrl = process.env.PUBLIC_URL
-  const [imageSrc, setImageSrc] = useState('')
+  const [imageSrc, setImageSrc] = useState(value)
 
   const clickHanlder = (e) => {
     const reader = new FileReader()

@@ -20,6 +20,18 @@ const LocationPath = () => {
         return '검색'
       case 'createrecipe':
         return '레시피 등록'
+      case 'mypage':
+        return '마이페이지'
+      case 'myrecipe':
+        return '작성한 레시피'
+      case 'myreple':
+        return '작성한 댓글'
+      case 'userinfo':
+        return '개인정보'
+      case 'passwordCheck':
+        return '비밀번호 확인'
+      case 'userinfomodify':
+        return '개인정보 수정'
       default:
         return str
     }

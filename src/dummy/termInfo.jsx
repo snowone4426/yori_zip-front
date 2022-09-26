@@ -1,5 +1,83 @@
 const publicUrl = process.env.PUBLIC_URL
 
+export const dummyUserInfo = {
+  userId: 0,
+  email: 'snowone4426@gmail.com',
+  profile: `${publicUrl}/assets/샤크슈카.jpg`,
+}
+
+export const dummyMyReple = [
+  {
+    recipeId: 0,
+    context:
+      '매 번 이렇게 레시피 얻어서 하는데 최소한 내가 한 건 올려 드려야 우리의 식탁에 예의인듯 싶어 댓글이라도 올리려 노력합니다. 아이들이 어느 식당을 비교할 수없는 최고의 맛이라고 해 더 좋습니다',
+    created_at: new Date('2022-10-11'),
+  },
+  {
+    recipeId: 0,
+    context:
+      '매 번 이렇게 레시피 얻어서 하는데 최소한 내가 한 건 올려 드려야 우리의 식탁에 예의인듯 싶어 댓글이라도 올리려 노력합니다. 아이들이 어느 식당을 비교할 수없는 최고의 맛이라고 해 더 좋습니다',
+    created_at: new Date('2022-10-11'),
+  },
+  {
+    recipeId: 0,
+    context:
+      '매 번 이렇게 레시피 얻어서 하는데 최소한 내가 한 건 올려 드려야 우리의 식탁에 예의인듯 싶어 댓글이라도 올리려 노력합니다. 아이들이 어느 식당을 비교할 수없는 최고의 맛이라고 해 더 좋습니다',
+    created_at: new Date('2022-10-11'),
+  },
+  {
+    recipeId: 0,
+    context:
+      '매 번 이렇게 레시피 얻어서 하는데 최소한 내가 한 건 올려 드려야 우리의 식탁에 예의인듯 싶어 댓글이라도 올리려 노력합니다. 아이들이 어느 식당을 비교할 수없는 최고의 맛이라고 해 더 좋습니다',
+    created_at: new Date('2022-10-11'),
+  },
+  {
+    recipeId: 0,
+    context:
+      '매 번 이렇게 레시피 얻어서 하는데 최소한 내가 한 건 올려 드려야 우리의 식탁에 예의인듯 싶어 댓글이라도 올리려 노력합니다. 아이들이 어느 식당을 비교할 수없는 최고의 맛이라고 해 더 좋습니다',
+    created_at: new Date('2022-10-11'),
+  },
+]
+
+export const dummyMyRecipe = [
+  {
+    recipeId: 0,
+    thumpnail: `${publicUrl}/assets/고기구이.jpg`,
+    subtitle: '꽃처럼 아름답고 맛있는',
+    title: '전주비빔밥',
+    created_at: new Date('2022-09-15'),
+    starScore: '4.0',
+    repleCount: 5,
+  },
+  {
+    recipeId: 0,
+    thumpnail: `${publicUrl}/assets/고기구이.jpg`,
+    subtitle: '꽃처럼 아름답고 맛있는',
+    title: '전주비빔밥',
+    created_at: new Date('2022-09-15'),
+    starScore: '4.0',
+    repleCount: 5,
+  },
+  {
+    recipeId: 0,
+    thumpnail: `${publicUrl}/assets/고기구이.jpg`,
+    subtitle: '꽃처럼 아름답고 맛있는',
+    title: '전주비빔밥',
+    created_at: new Date('2022-09-15'),
+    starScore: '4.0',
+    repleCount: 5,
+  },
+  {
+    recipeId: 0,
+    thumpnail: `${publicUrl}/assets/고기구이.jpg`,
+    subtitle: '꽃처럼 아름답고 맛있는',
+    title: '전주비빔밥',
+    created_at: new Date('2022-09-15'),
+    starScore: '4.0',
+    repleCount: 5,
+  },
+]
+
 export const categoryList = {
   종류: [
     '밥',

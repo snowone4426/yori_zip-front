@@ -13,6 +13,11 @@ import MyPage from './pages/MyPage'
 import styled from 'styled-components'
 import SignUpTermsList from './components/SignUpTermsList'
 import SignUpUserInfo from './components/SignUpUserIfo'
+import MyRecipe from './components/MyRecipe'
+import MyReple from './components/MyReple'
+import UserInfo from './components/UserInfo'
+import PasswordCheck from './components/PasswordCheck'
+import UserInfoModify from './components/UserInfoModify'
 
 const Router = () => {
   const [userInfo, setUserInfo] = useState({
@@ -63,7 +68,20 @@ const Router = () => {
         <Route path="/recipelist/*" element={<RecipeList />} />
         <Route path="/recipedetail/:recipeId" element={<RecipeDetail />} />
         <Route path="/createrecipe" element={<CreateRecipe />} />
-        <Route path="/mypage/:userId" element={<MyPage />} />
+        <Route path="/mypage" element={<MyPage />}>
+          <Route path="/mypage/myrecipe" element={<MyRecipe />} />
+          <Route path="/mypage/myreple" element={<MyReple />} />
+          <Route path="/mypage/userinfo" element={<UserInfo />}>
+            <Route
+              path="/mypage/userinfo/passwordCheck"
+              element={<PasswordCheck />}
+            />
+            <Route
+              path="/mypage/userinfo/userinfomodify"
+              element={<UserInfoModify />}
+            />
+          </Route>
+        </Route>
       </Routes>
       <Footer />
     </RouterContainer>

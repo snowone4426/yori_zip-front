@@ -7,8 +7,10 @@ const UserInfoInput = ({
   placeholder = '',
   validationStr = '',
   name = '',
+  disable = false,
+  value = '',
 }) => {
-  const [inputValue, setInputValue] = useState('')
+  const [inputValue, setInputValue] = useState(value)
   const [passwordCheck, setPasswordCheck] = useState('')
 
   const validation = () => {
@@ -54,6 +56,7 @@ const UserInfoInput = ({
           onChange={inputHanlder}
           onBlur={uploadHandler}
           placeholder={placeholder}
+          disable={disable}
         />
       </InputFrame>
       {name === 'password' && (

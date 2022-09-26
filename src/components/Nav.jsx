@@ -59,7 +59,7 @@ const Nav = ({ isLogin, gender, id, signoutHanlder }) => {
   if (isLogin) {
     btnSelector = (
       <React.Fragment>
-        <SignBtn onClick={() => navigate(`/mypage/${id}`)}>
+        <SignBtn onClick={() => navigate(`/mypage/myrecipe`)}>
           <img src={mypageGender} alt="mypage" />
         </SignBtn>
         <SignBtn onClick={signoutHanlder}>로그아웃</SignBtn>
