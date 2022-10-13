@@ -3,10 +3,18 @@ import { useNavigate, useLocation } from 'react-router-dom'
 import { useState } from 'react'
 
 import { categoryArr } from '../dummy/termInfo'
+import { useEffect } from 'react'
 
 const CategoryList = ({ where = '', setIsSubNavOpen = () => {} }) => {
   const navigate = useNavigate()
   const location = useLocation()
+
+  useEffect(() => {
+    fetch('http://localhost:8080/yori_zip-server/NavController?n=category')
+      .then((response) => response.json())
+      .then((response) => console.log(response))
+  }, [])
+
   const [smallCategory, setSmallCategory] = useState(
     !!location.state && Object.keys(location.state).includes('smallCategory')
       ? { ...location.state.smallCategory }

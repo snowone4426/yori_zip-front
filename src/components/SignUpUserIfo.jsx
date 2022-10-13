@@ -69,8 +69,33 @@ const SignUpUserInfo = () => {
 
   const submitHanlder = () => {
     if (!Object.values(userInfo).includes('')) {
-      console.log(Object.entries(userInfo))
-      navigate('/signin', { replace: true })
+      fetch(
+        'http://localhost:8080/yori_zip-server/SignUpController?su=signup',
+        {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            email: userInfo.email,
+            password: userInfo.password,
+            profile: '123',
+            nickname: userInfo.nickname,
+            gender: userInfo.gender,
+            question: userInfo.question,
+            answer: userInfo.answer,
+            type: 'C',
+          }),
+        },
+      )
+        .then((response) => response.json())
+        .then((response) => {
+          if (response) {
+            navigate('/signin', { replace: true, state: { where: 'signup' } })
+          } else {
+            alert('회원가입에 실패하였습니다')
+          }
+        })
     }
   }
 

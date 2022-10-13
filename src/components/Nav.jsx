@@ -5,7 +5,7 @@ import styled from 'styled-components'
 import CategoryList from './CategoryList'
 import RecentView from './RecentView'
 
-const Nav = ({ isLogin, gender, id, signoutHanlder }) => {
+const Nav = ({ isLogin, gender, signoutHanlder }) => {
   const navigate = useNavigate()
   const publicUrl = process.env.PUBLIC_URL
   const [isSearchOpen, setIsSearchOpen] = useState(false)
@@ -59,7 +59,7 @@ const Nav = ({ isLogin, gender, id, signoutHanlder }) => {
   if (isLogin) {
     btnSelector = (
       <React.Fragment>
-        <SignBtn onClick={() => navigate(`/mypage/${id}`)}>
+        <SignBtn onClick={() => navigate(`/mypage`)}>
           <img src={mypageGender} alt="mypage" />
         </SignBtn>
         <SignBtn onClick={signoutHanlder}>로그아웃</SignBtn>
@@ -78,7 +78,6 @@ const Nav = ({ isLogin, gender, id, signoutHanlder }) => {
         <BtnContainer>
           <SearchInputLabel isSearchOpen={isSearchOpen}>
             <SearchInput
-              type="text"
               value={searchText}
               onChange={searchHanlder}
               isSearchOpen={isSearchOpen}
@@ -104,26 +103,31 @@ const Nav = ({ isLogin, gender, id, signoutHanlder }) => {
         >
           카테고리
         </CategoryBtn>
-        <MiddleLine />
-        <SubBtn
-          onClick={subNavOpenHanlder}
-          onMouseEnter={hoverHanlder}
-          onMouseLeave={() => setIsHover('')}
-          name="recentRecipe"
-          isHover={isHover}
-          isSubNavOpen={isSubNavOpen}
-        >
-          최근 본 레시피
-        </SubBtn>
-        <SubBtn
-          onClick={() => navigate('/createrecipe', { state: { id: id } })}
-          onMouseEnter={hoverHanlder}
-          onMouseLeave={() => setIsHover('')}
-          name="createRecipe"
-          isHover={isHover}
-        >
-          레시피 등록
-        </SubBtn>
+        {isLogin && (
+          <>
+            <MiddleLine />
+            <SubBtn
+              onClick={subNavOpenHanlder}
+              onMouseEnter={hoverHanlder}
+              onMouseLeave={() => setIsHover('')}
+              name="recentRecipe"
+              isHover={isHover}
+              isSubNavOpen={isSubNavOpen}
+            >
+              최근 본 레시피
+            </SubBtn>
+            <SubBtn
+              onClick={() => navigate('/createrecipe')}
+              onMouseEnter={hoverHanlder}
+              onMouseLeave={() => setIsHover('')}
+              name="createRecipe"
+              isHover={isHover}
+            >
+              레시피 등록
+            </SubBtn>
+          </>
+        )}
+
         {isSubNavOpen && (
           <SubNavContainer>
             {isSubNavOpen === 'category' && (
@@ -188,6 +192,7 @@ const SearchInputLabel = styled.label`
     isSearchOpen ? '2px solid #585858' : 'none'};
   margin-right: 3px;
   padding-bottom: ${({ isSearchOpen }) => (isSearchOpen ? '3px' : '5px')};
+  cursor: pointer;
 `
 
 const SearchImg = styled.img`

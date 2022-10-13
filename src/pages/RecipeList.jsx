@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { useLocation, useNavigate } from 'react-router-dom'
+import { useLocation } from 'react-router-dom'
 import React, { useState, useEffect } from 'react'
 
 import TitleBox from '../components/TitleBox'
@@ -12,7 +12,6 @@ import { dummyRecipeArr } from '../dummy/termInfo'
 const RecipeList = () => {
   const publicUrl = process.env.PUBLIC_URL
   const location = useLocation()
-  const navigate = useNavigate()
   const sortArr = ['최신순', '인기순', '별점순']
 
   const [isSortOpen, setIsSortOpen] = useState(false)
@@ -33,7 +32,6 @@ const RecipeList = () => {
 
   useEffect(() => {
     setRecipeArr(dummyRecipeArr)
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   const sortHanlder = (sort) => {

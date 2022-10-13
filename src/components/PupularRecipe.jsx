@@ -5,11 +5,8 @@ import { useNavigate } from 'react-router-dom'
 import TitleBox from './TitleBox'
 import RecipeCardList from './RecipeCardList'
 
-import { dummyMainArr } from '../dummy/termInfo'
-
 const PupularRecipe = () => {
   const navigate = useNavigate()
-  const publicUrl = process.env.PUBLIC_URL
   const [recipeArr, setRecipeArr] = useState([
     {
       recipeId: 0,
@@ -25,8 +22,26 @@ const PupularRecipe = () => {
   ])
 
   useEffect(() => {
-    setRecipeArr(dummyMainArr)
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+    fetch('http://localhost:8080/yori_zip-server/MainController?m=hot')
+      .then((response) => response.json())
+      .then((response) => {
+        const recipeArray = []
+        response.map((el) =>
+          recipeArray.push({
+            recipeId: el.recipe_id,
+            title: el.title,
+            subTitle: el.subtitle,
+            thumbnail: el.thumbnail,
+            level: el.difficulty,
+            time: el.time,
+            starScore: el.star_score,
+            state: el.state,
+            created_at: new Date(el.created_at),
+          }),
+        )
+
+        setRecipeArr(recipeArray)
+      })
   }, [])
 
   return (

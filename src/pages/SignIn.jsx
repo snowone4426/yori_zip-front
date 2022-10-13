@@ -5,7 +5,7 @@ import styled from 'styled-components'
 const SignIn = ({ signinHanlder }) => {
   const navigate = useNavigate()
   const location = useLocation()
-  const [inputInfo, setInputInfo] = useState({ id: '', password: '' })
+  const [inputInfo, setInputInfo] = useState({ email: '', password: '' })
 
   useEffect(() => {
     if (
@@ -24,25 +24,20 @@ const SignIn = ({ signinHanlder }) => {
   }
 
   const submitHanlder = () => {
-    if (inputInfo.id === 'test' && inputInfo.password === 'test') {
-      signinHanlder()
-      navigate('/', { replace: true })
-    } else {
-      setInputInfo({ id: '', password: '' })
-      alert('틀렷슈')
-    }
+    signinHanlder(inputInfo.email, inputInfo.password)
+    setInputInfo({ email: '', password: '' })
   }
 
   return (
     <SignInContainer>
       <InputContainer>
         <LoginTitle>Logo</LoginTitle>
-        <InputLabel htmlFor="id">
+        <InputLabel htmlFor="email">
           <LoginInput
             type="text"
-            id="id"
-            value={inputInfo.id}
-            placeholder="ID"
+            id="email"
+            value={inputInfo.email}
+            placeholder="EMAIL"
             onChange={inputHanlder}
           />
         </InputLabel>
@@ -125,7 +120,9 @@ const SubmitBtn = styled.button`
   color: #f1f1f1;
   border-radius: 5px;
   background-color: ${({ inputInfo }) =>
-    inputInfo.id.length && inputInfo.password.length ? '#9F6255' : '#958380'};
+    inputInfo.email.length && inputInfo.password.length
+      ? '#9F6255'
+      : '#958380'};
 `
 
 export default SignIn

@@ -1,5 +1,6 @@
 import { Route, Routes } from 'react-router-dom'
 import { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 
 import Nav from './components/Nav'
 import Footer from './components/Footer'
@@ -15,39 +16,55 @@ import SignUpTermsList from './components/SignUpTermsList'
 import SignUpUserInfo from './components/SignUpUserIfo'
 
 const Router = () => {
+  const navigate = useNavigate()
   const [userInfo, setUserInfo] = useState({
-    id: 1,
-    email: 'snowone4426@gmail.com',
     gender: 'M',
-    nick: 'snowone',
-    phone: '010-2084-9913',
+    isLogin: false,
   })
 
-  const signinHanlder = () => {
-    setUserInfo({
-      id: 1,
-      email: 'snowone4426@gmail.com',
-      gender: 'M',
-      nick: 'snowone',
-      phone: '010-2084-9913',
+  const signinHanlder = (email, password) => {
+    fetch('http://localhost:8080/yori_zip-server/SignInController?si=signin', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        email: email,
+        password: password,
+      }),
     })
+      .then((response) => response.json())
+      .then((response) => {
+        if (response.success) {
+          const userObj = {
+            gender: response.gender,
+            isLogin: response.success,
+          }
+
+          setUserInfo(userObj)
+          navigate('/')
+        } else {
+          alert('아이디 또는 비밀번호가 다릅니다')
+        }
+      })
   }
 
   const signoutHanlder = () => {
-    setUserInfo({})
-  }
-
-  let isLogin = false
-  if (Object.keys(userInfo).length !== 0) {
-    isLogin = true
+    fetch('http://localhost:8080/yori_zip-server/NavController?n=signout')
+      .then((response) => response.json())
+      .then((response) => {
+        if (response) {
+          setUserInfo({})
+          navigate('/')
+        }
+      })
   }
 
   return (
     <RouterContainer>
       <Nav
-        isLogin={isLogin}
+        isLogin={userInfo.isLogin}
         gender={Object.keys(userInfo).length !== 0 ? userInfo.gender : ''}
-        id={Object.keys(userInfo).length !== 0 ? userInfo.id : 0}
         signoutHanlder={signoutHanlder}
       />
       <Routes>

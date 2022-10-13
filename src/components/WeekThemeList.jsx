@@ -3,37 +3,35 @@ import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 
 const WeekThemeList = () => {
-  const publicUrl = process.env.PUBLIC_URL
-  const [recipeList, setRecipeList] = useState([])
+  const [recipeList, setRecipeList] = useState([
+    {
+      recipeId: 0,
+      title: '',
+      subtitle: '',
+      thumbnail: ``,
+    },
+  ])
   const navigate = useNavigate()
 
   useEffect(() => {
-    setRecipeList([
-      {
-        recipeId: 0,
-        title: '샤크슈카',
-        subtitle: '마그레브의 달걀 요리',
-        thumbnail: `${publicUrl}/assets/샤크슈카.jpg`,
-      },
-      {
-        recipeId: 1,
-        title: '호박파이',
-        subtitle: '',
-        thumbnail: `${publicUrl}/assets/호박파이.jpg`,
-      },
-      {
-        recipeId: 2,
-        title: '당근 케이크',
-        subtitle: '',
-        thumbnail: `${publicUrl}/assets/당근케이크.jpg`,
-      },
-      {
-        recipeId: 3,
-        title: '고기구이',
-        subtitle: '불맛의 진수',
-        thumbnail: `${publicUrl}/assets/고기구이.jpg`,
-      },
-    ])
+    fetch(
+      'http://localhost:8080/yori_zip-server/MainController?m=theme&search_id=1',
+    )
+      .then((response) => response.json())
+      .then((response) => {
+        const weekArr = []
+
+        response.map((el) =>
+          el.push({
+            recipeId: el.recipe_id,
+            title: el.title,
+            subtitle: el.subtitle,
+            thumbnail: el.thumbnail,
+          }),
+        )
+
+        setRecipeList(weekArr)
+      })
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 

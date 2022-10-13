@@ -3,27 +3,28 @@ import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 
 const Banner = () => {
-  const publicUrl = process.env.PUBLIC_URL
   const navigate = useNavigate()
   const [bannerInfo, setBannerInfo] = useState([
     { bannerId: 0, photo: '', search: '', alt: '' },
   ])
 
   useEffect(() => {
-    setBannerInfo([
-      {
-        bannerId: 0,
-        photo: `${publicUrl}/assets/Banner.jpg`,
-        search: '달달한',
-        alt: 'sweet banner image',
-      },
-      {
-        bannerId: 1,
-        photo: `${publicUrl}/assets/Banner.jpg`,
-        search: '달달한',
-        alt: 'sweet banner image',
-      },
-    ])
+    fetch('http://localhost:8080/yori_zip-server/MainController?m=banner')
+      .then((response) => response.json())
+      .then((response) => {
+        const bannerArr = []
+
+        response.map((el) =>
+          el.push({
+            bannerId: response.banner_id,
+            photo: response.photo,
+            alt: response.alt,
+            search: response.search,
+          }),
+        )
+
+        setBannerInfo(bannerArr)
+      })
   }, [])
 
   return (
